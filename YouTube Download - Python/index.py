@@ -20,10 +20,14 @@ usuarioLabel.place(x=15, y=40)
 usuarioEntry = ttk.Entry(root, width=68)
 usuarioEntry.place(x=60, y=43)
 
-def baixar():
+def baixar():    
     url = usuarioEntry.get()
     youtube = YouTube(url)
+
     youtube.streams.get_highest_resolution().download()
+
+    sinalLabel = Label(root, text='Complete...', bg='black', font=('Calibri', 12), fg='white')
+    sinalLabel.place(x=2, y=105)
 
 enviaButton = ttk.Button(root, text='BAIXAR', command=baixar)
 enviaButton.place(x=210, y=80)
